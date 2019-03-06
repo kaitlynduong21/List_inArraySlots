@@ -23,6 +23,7 @@ public class List_inArraySlots {
     /**
       @return the number of elements in this list
      */
+
     public int size() {
 	return size;
     }
@@ -32,8 +33,19 @@ public class List_inArraySlots {
        @return a string representation of this list,
        in [a,b,c,] format
       */
-    // public String toString() {
-    // }
+    public String toString() {
+
+	String s = "[";
+
+	for (int element : list) {
+
+		s += element + ",";
+	}
+
+	s += "]";
+
+	return s;
+    }
 
 
     /**
