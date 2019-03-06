@@ -15,13 +15,17 @@ By Kaitlyn Duong and Michael Robertson
 
 //Constructor that creates a List_inArraySlots of a given size
 
-`List_inArraySlots(int elements)`
+`public List_inArraySlots(int size)`
 
 ### Methods
 
+//adds element to end by default
+
+`public void add(T element)`
+
 //adds element at a given position
 
-`public void add(int index)`
+`public void add(int index, T element)`
 
 //removes an element at a given position
 
