@@ -7,6 +7,8 @@ By Kaitlyn Duong and Michael Robertson
 
 `private int size`
 
+`private int[] list`
+
 ### Constructors
 
 //Constructor that creates a List_inArraySlots of a default size
@@ -21,11 +23,11 @@ By Kaitlyn Duong and Michael Robertson
 
 //adds element to end by default
 
-`public void add(T element)`
+`public void add(int element)`
 
 //adds element at a given position
 
-`public void add(int index, T element)`
+`public void add(int index, int element)`
 
 //removes an element at a given position
 
@@ -37,11 +39,14 @@ By Kaitlyn Duong and Michael Robertson
 
 //sets the element at a given position to the given element, returns the original element at the index
 
-`public T set(int index, T element)`
+`public T set(int index, int element)`
 
 //returns the number of filled elements
 
 `public int count()`
 
 ## UserOfList Class
+
+- Will create a reference to an object of type List_inArraySlots
+- Will call the methods that are defined in the List_inArraySlots class
 
