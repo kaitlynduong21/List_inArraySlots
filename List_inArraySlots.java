@@ -5,6 +5,8 @@
 
 public class List_inArraySlots {
 
+    private int size;
+    private int[] list;
     // declare fields here
 
     /**
