@@ -38,9 +38,9 @@ public class List_inArraySlots {
 
 	String s = "[";
 
-	for (int element : list) {
+	for (int i = 0; i < filledElements; i ++) {
 
-		s += element + ",";
+		s += list[i] + ",";
 	}
 
 	s += "]";
