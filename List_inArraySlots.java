@@ -5,30 +5,47 @@
 
 public class List_inArraySlots {
 
+    // declare fields here
+
     private int size;
     private int[] list;
-    // declare fields here
 
     /**
       Construct an empty list with a small initial capacity.
      */
     public List_inArraySlots() {
+
+	list = new int[10];
+	size = 0;
     }
 
 
     /**
       @return the number of elements in this list
      */
-    // public int size() {
-    // }
+
+    public int size() {
+	return size;
+    }
 
 
      /**
        @return a string representation of this list,
        in [a,b,c,] format
       */
-    // public String toString() {
-    // }
+    public String toString() {
+
+	String s = "[";
+
+	for (int element : list) {
+
+		s += element + ",";
+	}
+
+	s += "]";
+
+	return s;
+    }
 
 
     /**
