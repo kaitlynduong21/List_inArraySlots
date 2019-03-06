@@ -15,16 +15,17 @@ public class List_inArraySlots {
      */
     public List_inArraySlots() {
 
-	//default size = 10
 	list = new int[10];
+	size = 0;
     }
 
 
     /**
       @return the number of elements in this list
      */
-    // public int size() {
-    // }
+    public int size() {
+	return size;
+    }
 
 
      /**
