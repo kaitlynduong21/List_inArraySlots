@@ -7,7 +7,7 @@ public class List_inArraySlots {
 
     // declare fields here
 
-    private int size;
+    private int filledElements;
     private int[] list;
 
     /**
@@ -16,7 +16,7 @@ public class List_inArraySlots {
     public List_inArraySlots() {
 
 	list = new int[10];
-	size = 0;
+	filledElements = 0;
     }
 
 
@@ -26,7 +26,7 @@ public class List_inArraySlots {
 
 
     public int size() {
-	return size;
+	return filledElements;
     }
 
 
@@ -54,8 +54,18 @@ public class List_inArraySlots {
 
       @return true, in keeping with conventions yet to be discussed
      */
-     // public boolean add( int value) {
-     // }
+     public boolean add( int value) {
+
+	if (filledElements == list.length) {
+
+		expand();
+	}
+
+	list[filledElements] = value;
+	filledElements++;
+
+	return true;
+     }
 
 
     /**
@@ -63,7 +73,7 @@ public class List_inArraySlots {
       preserving existing data
      */
      private void expand() {
-       int[] expandedList = new int [oldLength * 2];
+       int[] expandedList = new int [list.length * 2];
        for (int i = 0; i < list.length; i++) {
          expandedList[i] = list[i];
        }
