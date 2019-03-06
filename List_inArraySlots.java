@@ -44,7 +44,12 @@ public class List_inArraySlots {
       Double the capacity of the List_inArraySlots,
       preserving existing data
      */
-     // private void expand() {
+     private void expand() {
+       int[] expandedList = new int [oldLength * 2];
+       for (int i = 0; i < list.length; i++) {
+         expandedList[i] = list[i];
+       }
+       list = expandedList;
         // System.out.println( "expand... (for debugging)");
            // /* S.O.P. rules for debugging:
               // Working methods should be silent. But during
@@ -52,5 +57,5 @@ public class List_inArraySlots {
               // this method is called when that is appropriate.
               // So test using the println(), then comment it out.
               // */
-     // }
+     }
 }
