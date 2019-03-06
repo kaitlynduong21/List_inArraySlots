@@ -5,14 +5,18 @@
 
 public class List_inArraySlots {
 
+    // declare fields here
+
     private int size;
     private int[] list;
-    // declare fields here
 
     /**
       Construct an empty list with a small initial capacity.
      */
     public List_inArraySlots() {
+
+	//default size = 10
+	list = new int[10];
     }
 
 
