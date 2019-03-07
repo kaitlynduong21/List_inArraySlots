@@ -67,6 +67,23 @@ public class List_inArraySlots {
 	return true;
      }
 
+ /*public boolean add(int value, int index) {
+
+	if (filledElements == list.length)
+	expand();
+	
+	for (int i = index; i < filledElements; i++) {
+
+		
+	} 
+
+	list[index] = value;
+
+	filledElements++;
+
+	return true;
+     }*/
+
 
     /**
       Double the capacity of the List_inArraySlots,
@@ -106,7 +123,7 @@ public class List_inArraySlots {
 
 		int original = list[index];
 
-		if (index == list.length - 1)
+		if (filledElements == list.length)
 		expand();
 
 		for (int i = index; i < filledElements; i++) {
