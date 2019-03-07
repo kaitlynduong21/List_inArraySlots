@@ -100,6 +100,24 @@ public class List_inArraySlots {
 
 		return original;
 	}
+	
+	
+	public int remove (int index) {
+
+		int original = list[index];
+
+		if (index == list.length - 1)
+		expand();
+
+		for (int i = index; i < filledElements; i++) {
+
+			list[i] = list[i+1];
+		} 
+
+		filledElements--;
+
+		return original;
+	}
 }
 
 
