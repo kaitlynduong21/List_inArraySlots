@@ -86,4 +86,20 @@ public class List_inArraySlots {
               // So test using the println(), then comment it out.
               // */
      }
+
+	public int get (int index) {
+
+		return list[index];
+	}
+
+	public int set (int value, int index) {
+
+		int original = list[index];
+
+		list[index] = value;
+
+		return original;
+	}
 }
+
+
