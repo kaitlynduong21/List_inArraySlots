@@ -16,6 +16,8 @@ That requirement "to store any values that an `int` can hold" implies that the i
 
 `private int[] list`
 
+`private static final int INITIAL_CAPACITY`
+
 ### Constructors
 
 //Constructor that creates a List_inArraySlots of a default size
