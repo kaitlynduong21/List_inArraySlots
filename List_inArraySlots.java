@@ -56,22 +56,22 @@ public class List_inArraySlots {
     return true;
   }
 
-  /*public boolean add(int value, int index) {
+  public boolean add(int value, int index) {
 
   if (filledElements == elements.length)
   expand();
 
-  for (int i = index; i < filledElements; i++) {
+  for (int i = filledElements; i > index; i--) {
 
-
-}
+	elements[i] = elements[i - 1];
+  }
 
 elements[index] = value;
 
 filledElements++;
 
 return true;
-}*/
+}
 
 
 /**
