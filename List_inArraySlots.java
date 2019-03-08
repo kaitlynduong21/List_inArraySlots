@@ -46,34 +46,87 @@ public class List_inArraySlots {
   /**
   Appends @value to the end of this list.
 
-  @return true, in keeping with conventions yet to be discussed
-  */
-  public boolean add( int value) {
-    if (filledElements == list.length) {
-      expand();
-    }
-    list[filledElements] = value;
-    filledElements++;
-    return true;
-  }
+      @return true, in keeping with conventions yet to be discussed
+     */
+     public boolean add( int value) {
+
+	if (filledElements == list.length) {
+
+		expand();
+	}
+
+	list[filledElements] = value;
+	filledElements++;
+
+	return true;
+     }
+
+ /*public boolean add(int value, int index) {
+
+	if (filledElements == list.length)
+	expand();
+
+	for (int i = index; i < filledElements; i++) {
 
 
-  /**
-  Double the capacity of the List_inArraySlots,
-  preserving existing data
-  */
-  private void expand() {
-    int[] expandedList = new int [list.length * 2];
-    for (int i = 0; i < list.length; i++) {
-      expandedList[i] = list[i];
-    }
-    list = expandedList;
-    // System.out.println( "expand... (for debugging)");
-    // /* S.O.P. rules for debugging:
-    // Working methods should be silent. But during
-    // development, the programmer must verify that
-    // this method is called when that is appropriate.
-    // So test using the println(), then comment it out.
-    // */
-  }
+	}
+
+	list[index] = value;
+
+	filledElements++;
+
+	return true;
+     }*/
+
+
+    /**
+      Double the capacity of the List_inArraySlots,
+      preserving existing data
+     */
+     private void expand() {
+       int[] expandedList = new int [list.length * 2];
+       for (int i = 0; i < list.length; i++) {
+         expandedList[i] = list[i];
+       }
+       list = expandedList;
+        // System.out.println( "expand... (for debugging)");
+           // /* S.O.P. rules for debugging:
+              // Working methods should be silent. But during
+              // development, the programmer must verify that
+              // this method is called when that is appropriate.
+              // So test using the println(), then comment it out.
+              // */
+     }
+
+	public int get (int index) {
+
+		return list[index];
+	}
+
+	public int set (int value, int index) {
+
+		int original = list[index];
+
+		list[index] = value;
+
+		return original;
+	}
+
+
+	public int remove (int index) {
+
+		int original = list[index];
+
+		if (filledElements == list.length)
+		expand();
+
+		for (int i = index; i < filledElements; i++) {
+
+			list[i] = list[i+1];
+		}
+
+		filledElements--;
+
+		return original;
+	}
 }
