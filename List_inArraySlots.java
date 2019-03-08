@@ -1,26 +1,25 @@
 /**
-Implement a list of integer elements, including
+Implement a elements of integer elements, including
 both data and operations.
 */
 
 public class List_inArraySlots {
 
-  // declare fields here
-
   private int filledElements;
-  private int[] list;
+  private int[] elements;
+
+  private static final int INITIAL_CAPACITY = 10;
 
   /**
-  Construct an empty list with a small initial capacity.
+  Construct an empty elements with a small initial capacity.
   */
   public List_inArraySlots() {
-    list = new int[10];
-    filledElements = 0;
+    elements = new int[INITIAL_CAPACITY];
   }
 
 
   /**
-  @return the number of elements in this list
+  @return the number of elements in this elements
   */
 
 
@@ -30,13 +29,13 @@ public class List_inArraySlots {
 
 
   /**
-  @return a string representation of this list,
+  @return a string representation of this elements,
   in [a,b,c,] format
   */
   public String toString() {
     String s = "[";
     for (int i = 0; i < filledElements; i ++) {
-      s += list[i] + ",";
+      s += elements[i] + ",";
     }
     s += "]";
     return s;
@@ -44,89 +43,69 @@ public class List_inArraySlots {
 
 
   /**
-  Appends @value to the end of this list.
+  Appends @value to the end of this elements.
 
-      @return true, in keeping with conventions yet to be discussed
-     */
-     public boolean add( int value) {
+  @return true, in keeping with conventions yet to be discussed
+  */
+  public boolean add( int value) {
+    if (filledElements == elements.length) {
+      expand();
+    }
+    elements[filledElements] = value;
+    filledElements++;
+    return true;
+  }
 
-	if (filledElements == list.length) {
+  /*public boolean add(int value, int index) {
 
-		expand();
-	}
+  if (filledElements == elements.length)
+  expand();
 
-	list[filledElements] = value;
-	filledElements++;
-
-	return true;
-     }
-
- /*public boolean add(int value, int index) {
-
-	if (filledElements == list.length)
-	expand();
-
-	for (int i = index; i < filledElements; i++) {
+  for (int i = index; i < filledElements; i++) {
 
 
-	}
+}
 
-	list[index] = value;
+elements[index] = value;
 
-	filledElements++;
+filledElements++;
 
-	return true;
-     }*/
-
-
-    /**
-      Double the capacity of the List_inArraySlots,
-      preserving existing data
-     */
-     private void expand() {
-       int[] expandedList = new int [list.length * 2];
-       for (int i = 0; i < list.length; i++) {
-         expandedList[i] = list[i];
-       }
-       list = expandedList;
-        // System.out.println( "expand... (for debugging)");
-           // /* S.O.P. rules for debugging:
-              // Working methods should be silent. But during
-              // development, the programmer must verify that
-              // this method is called when that is appropriate.
-              // So test using the println(), then comment it out.
-              // */
-     }
-
-	public int get (int index) {
-
-		return list[index];
-	}
-
-	public int set (int value, int index) {
-
-		int original = list[index];
-
-		list[index] = value;
-
-		return original;
-	}
+return true;
+}*/
 
 
-	public int remove (int index) {
+/**
+Double the capacity of the List_inArraySlots,
+preserving existing data
+*/
+  private void expand() {
+    int[] expandedList = new int [elements.length * 2];
+    for (int i = 0; i < elements.length; i++) {
+      expandedList[i] = elements[i];
+    }
+    elements = expandedList;
+  }
 
-		int original = list[index];
+  public int get (int index) {
+    return elements[index];
+  }
 
-		if (filledElements == list.length)
-		expand();
+  public int set (int value, int index) {
+    int original = elements[index];
+    elements[index] = value;
+    return original;
+  }
 
-		for (int i = index; i < filledElements; i++) {
 
-			list[i] = list[i+1];
-		}
-
-		filledElements--;
-
-		return original;
-	}
+  public int remove (int index) {
+    int original = elements[index];
+    if (filledElements == elements.length) {
+      expand();
+      for (int i = index; i < filledElements; i++) {
+        elements[i] = elements[i+1];
+      }
+    }
+    filledElements--;
+    return original;
+  }
 }
