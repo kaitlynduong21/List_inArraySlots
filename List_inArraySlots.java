@@ -99,6 +99,7 @@ preserving existing data
     for (int i = index; i < filledElements - 1; i++) {
       elements[i] = elements[i+1];
     }
+
     filledElements--;
     return original;
   }
