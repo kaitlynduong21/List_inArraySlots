@@ -56,7 +56,7 @@ public class List_inArraySlots {
     return true;
   }
 
-  public boolean add(int value, int index) {
+  public void add(int index, int value) {
 
   if (filledElements == elements.length)
   expand();
@@ -66,11 +66,9 @@ public class List_inArraySlots {
 	elements[i] = elements[i - 1];
   }
 
-elements[index] = value;
+  elements[index] = value;
 
-filledElements++;
-
-return true;
+  filledElements++;
 }
 
 
@@ -90,7 +88,7 @@ preserving existing data
     return elements[index];
   }
 
-  public int set (int value, int index) {
+  public int set (int index, int value) {
     int original = elements[index];
     elements[index] = value;
     return original;
@@ -99,12 +97,13 @@ preserving existing data
 
   public int remove (int index) {
     int original = elements[index];
-    if (filledElements == elements.length) {
-      expand();
-      for (int i = index; i < filledElements; i++) {
+    if (filledElements == elements.length)
+    expand();
+      
+    for (int i = index; i < filledElements; i++) {
         elements[i] = elements[i+1];
-      }
     }
+    
     filledElements--;
     return original;
   }
