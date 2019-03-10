@@ -47,7 +47,7 @@ public class List_inArraySlots {
 
   @return true, in keeping with conventions yet to be discussed
   */
-  public boolean add( int value) {
+  public boolean add(int value) {
     if (filledElements == elements.length) {
       expand();
     }
@@ -56,22 +56,16 @@ public class List_inArraySlots {
     return true;
   }
 
-  public boolean add(int value, int index) {
-
-  if (filledElements == elements.length)
-  expand();
-
-  for (int i = filledElements; i > index; i--) {
-
-	elements[i] = elements[i - 1];
+  public boolean add(int index, int value) {
+    if (filledElements == elements.length)
+    expand();
+    for (int i = filledElements; i > index; i--) {
+      elements[i] = elements[i - 1];
+    }
+    elements[index] = value;
+    filledElements++;
+    return true;
   }
-
-elements[index] = value;
-
-filledElements++;
-
-return true;
-}
 
 
 /**
@@ -90,20 +84,20 @@ preserving existing data
     return elements[index];
   }
 
-  public int set (int value, int index) {
+  public int set (int index, int newValue) {
     int original = elements[index];
-    elements[index] = value;
+    elements[index] = newValue;
     return original;
   }
 
 
   public int remove (int index) {
+    if (index <  0 || index >  filledElements) {
+      throw new IllegalArgumentException();
+    }
     int original = elements[index];
-    if (filledElements == elements.length) {
-      expand();
-      for (int i = index; i < filledElements; i++) {
-        elements[i] = elements[i+1];
-      }
+    for (int i = index; i < filledElements - 1; i++) {
+      elements[i] = elements[i+1];
     }
     filledElements--;
     return original;
