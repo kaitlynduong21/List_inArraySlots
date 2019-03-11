@@ -103,7 +103,6 @@ preserving existing data
     }
     elements[index] = value;
     filledElements++;
-    return true;
   }
 
   /**
