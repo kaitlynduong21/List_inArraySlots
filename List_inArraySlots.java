@@ -17,21 +17,13 @@ public class List_inArraySlots {
     elements = new int[INITIAL_CAPACITY];
   }
 
-
   /**
   @return the number of elements in this elements
   */
 
-  /**
-  @return a string representation of this list,
-  in [a,b,c,] format
-  */
-  public String toString() {
-
   public int size() {
     return filledElements;
   }
-
 
   /**
   @return a string representation of this elements,
@@ -46,13 +38,12 @@ public class List_inArraySlots {
     return s;
   }
 
-
   /**
   Appends @value to the end of this elements.
 
   @return true, in keeping with conventions yet to be discussed
   */
-  public boolean add( int value) {
+  public boolean add(int value) {
     if (filledElements == elements.length) {
       expand();
     }
@@ -60,24 +51,6 @@ public class List_inArraySlots {
     filledElements++;
     return true;
   }
-
-  public boolean add(int value, int index) {
-
-  if (filledElements == elements.length)
-  expand();
-
-  for (int i = filledElements; i > index; i--) {
-
-	elements[i] = elements[i - 1];
-  }
-
-elements[index] = value;
-
-filledElements++;
-
-return true;
-}
-
 
 /**
 Double the capacity of the List_inArraySlots,
@@ -91,25 +64,61 @@ preserving existing data
     elements = expandedList;
   }
 
+  /**
+     accessor
+     @return element @index from this list
+     precondition: @index is within the bounds of the array.
+         (Having warned the user about this precondition,
+          you should NOT complicate your code to check
+          whether user violated the condition.)
+    */
+
   public int get (int index) {
     return elements[index];
   }
 
-  public int set (int value, int index) {
+  /**
+     Set value at @index to @newValue
+     @return old value at @index
+     @precondition: @index is within the bounds of this list.
+    */
+
+  public int set (int index, int newValue) {
     int original = elements[index];
-    elements[index] = value;
+    elements[index] = newValue;
     return original;
   }
 
+  /**
+        Insert @value at position @index in this list.
+        Shift the element currently at that position (if any)
+        and any subsequent elements to the right
+        (that is, increase the index associated with each).
+       */
+  public boolean add(int index, int value) {
+    if (filledElements == elements.length)
+    expand();
+    for (int i = filledElements; i > index; i--) {
+      elements[i] = elements[i - 1];
+    }
+    elements[index] = value;
+    filledElements++;
+    return true;
+  }
+
+  /**
+        Remove the element at position @index in this list.
+        Shift any subsequent elements to the left (that is,
+        decrease the index associated with each).
+        @return the value that was removed from the list
+       */
 
   public int remove (int index) {
     int original = elements[index];
-    if (filledElements == elements.length) {
-      expand();
-      for (int i = index; i < filledElements; i++) {
-        elements[i] = elements[i+1];
-      }
+    for (int i = index; i < filledElements - 1; i++) {
+      elements[i] = elements[i+1];
     }
+
     filledElements--;
     return original;
   }
