@@ -1,34 +1,26 @@
 /**
-Implement a list of integer elements, including
+Implement a elements of integer elements, including
 both data and operations.
 */
 
 public class List_inArraySlots {
 
-  // declare fields here
-
   private int filledElements;
-  private int[] list;
+  private int[] elements;
+
+  private static final int INITIAL_CAPACITY = 10;
 
   /**
-  Construct an empty list with a small initial capacity.
+  Construct an empty elements with a small initial capacity.
   */
   public List_inArraySlots() {
-
-    list = new int[10];
-    filledElements = 0;
+    elements = new int[INITIAL_CAPACITY];
   }
 
-  
+
   /**
-  @return the number of elements in this list
+  @return the number of elements in this elements
   */
-
-
-  public int size() {
-    return filledElements;
-  }
-
 
   /**
   @return a string representation of this list,
@@ -36,54 +28,89 @@ public class List_inArraySlots {
   */
   public String toString() {
 
+  public int size() {
+    return filledElements;
+  }
+
+
+  /**
+  @return a string representation of this elements,
+  in [a,b,c,] format
+  */
+  public String toString() {
     String s = "[";
-
     for (int i = 0; i < filledElements; i ++) {
-
-      s += list[i] + ",";
+      s += elements[i] + ",";
     }
-
     s += "]";
-
     return s;
   }
 
 
   /**
-  Appends @value to the end of this list.
+  Appends @value to the end of this elements.
 
   @return true, in keeping with conventions yet to be discussed
   */
   public boolean add( int value) {
-
-    if (filledElements == list.length) {
-
+    if (filledElements == elements.length) {
       expand();
     }
-
-    list[filledElements] = value;
+    elements[filledElements] = value;
     filledElements++;
-
     return true;
   }
 
+  public boolean add(int value, int index) {
 
-  /**
-  Double the capacity of the List_inArraySlots,
-  preserving existing data
-  */
+  if (filledElements == elements.length)
+  expand();
+
+  for (int i = filledElements; i > index; i--) {
+
+	elements[i] = elements[i - 1];
+  }
+
+elements[index] = value;
+
+filledElements++;
+
+return true;
+}
+
+
+/**
+Double the capacity of the List_inArraySlots,
+preserving existing data
+*/
   private void expand() {
-    int[] expandedList = new int [list.length * 2];
-    for (int i = 0; i < list.length; i++) {
-      expandedList[i] = list[i];
+    int[] expandedList = new int [elements.length * 2];
+    for (int i = 0; i < elements.length; i++) {
+      expandedList[i] = elements[i];
     }
-    list = expandedList;
-    // System.out.println( "expand... (for debugging)");
-    // /* S.O.P. rules for debugging:
-    // Working methods should be silent. But during
-    // development, the programmer must verify that
-    // this method is called when that is appropriate.
-    // So test using the println(), then comment it out.
-    // */
+    elements = expandedList;
+  }
+
+  public int get (int index) {
+    return elements[index];
+  }
+
+  public int set (int value, int index) {
+    int original = elements[index];
+    elements[index] = value;
+    return original;
+  }
+
+
+  public int remove (int index) {
+    int original = elements[index];
+    if (filledElements == elements.length) {
+      expand();
+      for (int i = index; i < filledElements; i++) {
+        elements[i] = elements[i+1];
+      }
+    }
+    filledElements--;
+    return original;
   }
 }
