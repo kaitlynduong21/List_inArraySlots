@@ -95,7 +95,7 @@ preserving existing data
         and any subsequent elements to the right
         (that is, increase the index associated with each).
        */
-  public boolean add(int index, int value) {
+  public void add(int index, int value) {
     if (filledElements == elements.length)
     expand();
     for (int i = filledElements; i > index; i--) {
