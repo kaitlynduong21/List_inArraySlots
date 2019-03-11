@@ -3,8 +3,10 @@
  */
 public class UserOfList {
 
+  private static List_inArraySlots list;
+
     public static void main( String[] args ) {
-        List_inArraySlots list = new List_inArraySlots();
+        list = new List_inArraySlots();
 
         // System.out.println( "number of elements: " + list.size() );
          System.out.println( "empty list: " + list);
@@ -49,22 +51,22 @@ public class UserOfList {
 
 
         // test set
-      setTest(list,  8);
-      setTest(list, 16);
+      setTest(8);
+      setTest(16);
       System.out.println();
 
       // test adding at a specified position
-        addAtTest(list, 0, 29); // beginning of the list
+        addAtTest(0, 29); // beginning of the list
 
         // end of the list using the new add method
-        addAtTest( list, list.size(), 17);
+        addAtTest(list.size(), 17);
 
-        addAtTest(list, 2, 19); // middle of a small list
+        addAtTest(2, 19); // middle of a small list
 
         // force an expansion
-        addAtTest(list, 2, 23);
-        addAtTest(list, 2, 23);
-        addAtTest(list, 2, 23);
+        addAtTest(2, 23);
+        addAtTest(2, 23);
+        addAtTest(2, 23);
 
 
     /**
@@ -73,15 +75,15 @@ public class UserOfList {
 
     }
 
-    private static void setTest(List_inArraySlots list, int modifyAt) {
+    private static void setTest(int modifyAt) {
         System.out.println(
             "changed element " + modifyAt + " from "
-          + list.set( modifyAt, modifyAt + 1000) + " to "
-          + list.get( modifyAt)
+          + list.set(modifyAt, modifyAt + 1000) + " to "
+          + list.get(modifyAt)
           );
      }
 
-     private static void addAtTest( List_inArraySlots list, int addAt, int value) {
+     private static void addAtTest(int addAt, int value) {
           list.add( addAt, value);
           System.out.println(
               "insert " + value
