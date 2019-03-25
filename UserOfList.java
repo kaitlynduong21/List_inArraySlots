@@ -68,6 +68,13 @@ public class UserOfList {
         addAtTest(2, 23);
         addAtTest(2, 23);
 
+        // testing addAsHead
+        list.addAsHead(10);
+        System.out.println("Adding 10 at the head: " + list);
+        list.addAsHead(11);
+        System.out.println("Adding 11 at the head: " + list);
+        list.addAsHead(12);
+        System.out.println("Adding 12 at the head: " + list);
 
     /**
       Test the 2-argument add( index, value) method.

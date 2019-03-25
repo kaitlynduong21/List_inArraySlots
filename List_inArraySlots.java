@@ -52,6 +52,19 @@ public class List_inArraySlots {
     return true;
   }
 
+  public boolean addAsHead(int value) {
+    if (filledElements == elements.length) {
+      expand();
+    }
+    for (int i = filledElements; i > 0; i--) {
+      elements[i] = elements[i - 1];
+    }
+    elements[0] = value;
+    filledElements++;
+    return true;
+
+  }
+
 /**
 Double the capacity of the List_inArraySlots,
 preserving existing data
